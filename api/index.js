@@ -17,7 +17,7 @@ app.use(cors())
 app.use(logger())
 app.use(bodyParser())
 
-//console.log("routes: ",routes.routes())
+// console.log("routes: ",routes.routes())
 app.use(routes.routes())
 app.use(routes.allowedMethods());
 

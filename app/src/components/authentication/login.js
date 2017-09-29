@@ -41,17 +41,51 @@ class Login extends Component {
   render = () => {
     const { handleSubmit, errors, message, loading } = this.props;
 
+    // return (
+    //   <div className={`auth-box ${loading ? 'is-loading' : ''}`}>
+    //     <h1>Login2</h1>
+    //     <GenericForm
+    //       onSubmit={handleSubmit(this.handleFormSubmit)}
+    //       errors={errors}
+    //       message={message}
+    //       formSpec={Login.formSpec}
+    //       submitText="Login"
+    //     />
+    //     <Link className="inline" to="/forgot-password">Forgot Password bro?</Link> | <Link className="inline" to="/register">Sign up nigga!</Link>
+    //   </div>
+    // );
+
+
     return (
-      <div className={`auth-box ${loading ? 'is-loading' : ''}`}>
-        <h1>Login2</h1>
-        <GenericForm
-          onSubmit={handleSubmit(this.handleFormSubmit)}
-          errors={errors}
-          message={message}
-          formSpec={Login.formSpec}
-          submitText="Login"
-        />
-        <Link className="inline" to="/forgot-password">Forgot Password bro?</Link> | <Link className="inline" to="/register">Sign up nigga!</Link>
+      <div className="modal fade" id="login-modal" tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">
+                    Login
+                  </h4>
+              <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div className="modal-body">
+              <form action="login.htm">
+                <GenericForm
+                  onSubmit={handleSubmit(this.handleFormSubmit)}
+                  errors={errors}
+                  message={message}
+                  formSpec={Login.formSpec}
+                  submitText="Login"
+                />
+              </form>
+            </div>
+            <div className="modal-footer">
+              <small>Not a member? <a href="#" className="signup">Sign up now!</a></small>
+              <br />
+              <small><a href="#">Forgotten password?</a></small>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     );
   }
